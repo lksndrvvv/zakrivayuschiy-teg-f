@@ -259,6 +259,40 @@ style.css
 }
 
 
+.card__image--original {
+  filter: none;
+}
+
+.card__image--desaturated {
+  filter: saturate(0.4);
+}
+
+.card__image--desaturated {
+  filter: contrast(1.8) brightness(0.8);
+}
+
+.card__image--shifted-hue {
+  filter: hue-rotate(35deg);
+}
+
+.card__image--sepia {
+  filter: sepia(0.7);
+}
+
+.card__image--blurred {
+  filter: blur(1.2px) saturate(0.8);
+}
+
+.card__image--muted-contrast {
+  filter: grayscale(0.85) contrast(1.1);
+}
+
+.card__image--inverted {
+  filter: invert(0.8);
+}
+
+
+
 @media (width <= 375px) {
   .main {
     gap: 49.5px;

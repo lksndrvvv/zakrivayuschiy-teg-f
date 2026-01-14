@@ -124,7 +124,7 @@ style.css
 }
 
 /* Если stroke поддерживается */
-@supports ((text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000)) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .card__label {
     -webkit-text-stroke: 1px var(--label-stroke-color);
     text-stroke: 1px var(--label-stroke-color);
@@ -171,12 +171,110 @@ style.css
   border: 2px solid #000;
   padding: 10.5px 35px;
   font-family: var(--font-accent);
-  font-size: 14px;
+  font-size: var(--font-size-button);
   line-height: 1;
   background: transparent;
 }
 
+.save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 50px auto 100px auto;
+  padding: 15px 18px;
+  border: 2px solid #000;
+  background: #fff;
+
+  font-family: var(--font-accent);
+  font-size: var(--font-size-button);
+  line-height: 1;
+}
+
+.save-button__icon {
+  display: block;
+}
+
 .card__icon-button,
-.card__like-button {
+.card__like-button,
+.save-button {
   cursor: pointer;
+}
+
+.dialog {
+  display: none;
+
+  border: 2px solid #000;
+  background: #fff;
+
+  color: var(--color-text-main);
+}
+
+.dialog[open] {
+  display: block; /* меняем display только при open */
+  inline-size: min(353px, calc(100vw - 40px));
+  padding: 30px;
+}
+
+/* Фон под диалогом */
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog[open] .dialog__content {
+  display: grid;
+  grid-template-columns: 39px 1fr;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.dialog__icon {
+  display: block;
+}
+
+.dialog__text {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dialog__form {
+  margin-top: 30px;
+} 
+
+.dialog__button {
+  inline-size: 100%;
+  padding: 10.5px 0;
+
+  border: 2px solid #000;
+  background: #fff;
+
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+
+@media (width <= 376px) {
+  .main {
+    gap: 49.5px;
+  }
+
+  .save-button {
+    flex-direction: column;
+  }
+
+  .save-button__icon{
+    width: 28px;
+    height: 28px;
+  }
+
+  .dialog[open] {
+    padding: 30px 40px;
+    inline-size: min(341px, calc(100vw - 34px));
+  }
+
 }

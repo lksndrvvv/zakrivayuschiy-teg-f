@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Закрывающий тег</title>
+    
+    <link rel="icon" href="./images/favicons/favicon.ico" sizes="any">
+    <link rel="icon" href="./images/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./images/favicons/apple-touch-icon.png">
+
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
     <link rel="stylesheet" href="./styles/globals.css" />
@@ -11,8 +16,110 @@
     <link rel="stylesheet" href="./styles/animations.css" />
   </head>
   <body class="page">
-    <header class="header"></header>
-    <main></main>
-    <script src="./scripts/like.js"></script>
+  <header class="header">
+    <div class="content">
+      <a class="header__logo" href="#">
+        &lt;/HTML&gt;
+      </a>
+      <h1 class="header__title">Закрывающий тег</h1>
+    </div>
+  </header>
+
+  <main class="main">
+    <article class="card content">
+      <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
+      <div class="card__image-wrapper">
+        <span class="card__label">&lt;/HTML&gt;</span>
+        <picture>
+          <!-- Мобильные AVIF -->
+          <source
+            srcset="
+              ./images/truck-mobile@1x.avif 1x,
+              ./images/truck-mobile@2x.avif 2x
+            "
+            type="image/avif"
+            media="(max-width: 700px)"
+          />
+          <!-- Мобильные WebP -->
+          <source
+            srcset="
+              ./images/truck-mobile@1x.webp 1x,
+              ./images/truck-mobile@2x.webp 2x
+            "
+            type="image/webp"
+            media="(max-width: 700px)"
+          />
+          <!-- Мобильные JPG -->
+          <source
+            srcset="
+              ./images/truck-mobile@1x.jpg 1x,
+              ./images/truck-mobile@2x.jpg 2x
+            "
+            media="(max-width: 700px)"
+          />
+          <!-- Десктоп AVIF -->
+          <source
+            srcset="
+              ./images/truck-desktop@1x.avif 1x,
+              ./images/truck-desktop@2x.avif 2x
+            "
+            type="image/avif"
+          />
+          <!-- Десктоп WebP -->
+          <source
+            srcset="
+              ./images/truck-desktop@1x.webp 1x,
+              ./images/truck-desktop@2x.webp 2x
+            "
+            type="image/webp"
+          />
+          <!-- Десктоп JPG -->
+          <img
+            class="card__image"
+            src="./images/truck-desktop@1x.jpg"
+            srcset="./images/truck-desktop@2x.jpg 2x"
+            alt="Пиксельный фургон в ночном пейзаже"
+            loading="lazy"
+          />
+        </picture>
+      </div>
+
+      <div class="card__text">
+        <p>Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.</p>
+        <p>Место для ваших воспоминаний о начале обучения.</p>
+      </div>
+
+      <div class="card__actions">
+        <button class="card__icon-button" type="button" aria-label="Поставить лайк">
+          <svg class="like-icon" width="39" height="36" viewBox="0 0 39 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 6H9V9H12V6Z" fill="black"/>
+            <path d="M15 6H12V9H15V6Z" fill="black"/>
+            <path d="M9 9H6V12H9V9Z" fill="black"/>
+            <path d="M9 12H6V15H9V12Z" fill="black"/>
+            <path d="M9 15H6V18H9V15Z" fill="black"/>
+            <path d="M18 6H15V9H18V6Z" fill="black"/>
+            <path d="M12 18H9V21H12V18Z" fill="black"/>
+            <path d="M15 21H12V24H15V21Z" fill="black"/>
+            <path d="M18 24H15V27H18V24Z" fill="black"/>
+            <path d="M27 6H30V9H27V6Z" fill="black"/>
+            <path d="M24 6H27V9H24V6Z" fill="black"/>
+            <path d="M30 9H33V12H30V9Z" fill="black"/>
+            <path d="M30 12H33V15H30V12Z" fill="black"/>
+            <path d="M30 15H33V18H30V15Z" fill="black"/>
+            <path d="M21 6H24V9H21V6Z" fill="black"/>
+            <path d="M27 18H30V21H27V18Z" fill="black"/>
+            <path d="M24 21H27V24H24V21Z" fill="black"/>
+            <path d="M21 24H24V27H21V24Z" fill="black"/>
+            <path d="M21 9H18V12H21V9Z" fill="black"/>
+            <path d="M21 27H18V30H21V27Z" fill="black"/>
+          </svg>
+        </button>
+        <button class="card__like-button" type="button">
+          <span class="button__text">Like</span>
+        </button>
+      </div>
+    </article>
+  </main>
+  <script src="./scripts/like.js"></script>
   </body>
 </html>

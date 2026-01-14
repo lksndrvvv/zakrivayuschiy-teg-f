@@ -1,1 +1,26 @@
-/* В этом файле вы импортируете все шрифты для сайта. Один из них вариативный и требует особенной настройки */
+/* В этом файле вы импортируете все шрифты для сайта. Один из них вариативный и требует особенной настройки 
+font.css*/
+
+/* Inter — вариативный */
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+  src:
+    local("Inter"),
+    url("./Inter-Variable.woff2") format("woff2 supports variations"),
+    url("./Inter-Variable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 410 715;
+}
+
+/* PressStart2P — акцентный */
+@font-face {
+  font-family: "PressStart2P";
+  font-display: swap;
+  src:
+    local("PressStart2P"),
+    local("PressStart2P Regular"),
+    url("./PressStart2P-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}

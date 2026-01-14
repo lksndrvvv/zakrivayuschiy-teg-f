@@ -1,1 +1,38 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства variables.css*/
+
+:root {
+  --font-main: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-accent: "PressStart2P", "Segoe UI", Arial, sans-serif;
+
+  --font-weight-text: 410;
+  --font-weight-title: 715;
+  /* --font-weight-accent: 400; */
+
+  --color-text-main: #000000;
+  --color-text-inverse: #ffffff;
+
+  --font-size-main: 18px;
+
+  --page-background: 
+    repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      to bottom,
+      #e7e7e7 0%,
+      #e7e7e7 0.01%,
+      #1a1a1a 100%
+    )
+  ;
+
+  --content-width: clamp(320px, 100vw, 700px);
+
+  --label-stroke-color: #ffffff;
+}

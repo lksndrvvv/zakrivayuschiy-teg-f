@@ -10,6 +10,9 @@
 
 */
 
+
+/* Основное */
+
 .like-icon .sparks {
   opacity: 0;
   fill: var(--animation-fill-color);
@@ -36,6 +39,8 @@
 
 
 
+/* Hover */
+
 .like-icon:hover .core {
   fill: var(--contour-color);
   transition-delay: 0s;
@@ -48,6 +53,8 @@
 
 
 
+/* Active */
+
 .like-icon:active .core {
   fill: var(--animation-fill-color);
   transition-delay: 0s;
@@ -59,6 +66,8 @@
 }
 
 
+
+/* is liked */
 
 .like-icon.is-liked .core {
   fill: var(--animation-fill-color);
@@ -74,6 +83,10 @@
   fill: var(--animation-fill-color);
   transition: fill 0.3s linear 0.06s;
 }
+
+
+
+/* Все, что относится к keyframes */
 
 .like-icon.is-liked .heart {
   transform-origin: center;

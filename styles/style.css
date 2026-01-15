@@ -114,11 +114,8 @@ style.css
   text-transform: uppercase;
 
   /* Фоллбэк-обводка (работает почти везде) */
-  text-shadow:
-    -1px 0 var(--label-stroke-color),
-    0 1px var(--label-stroke-color),
-    1px 0 var(--label-stroke-color),
-    0 -1px var(--label-stroke-color);
+  text-shadow: -1px 0 var(--label-stroke-color), 0 1px var(--label-stroke-color),
+    1px 0 var(--label-stroke-color), 0 -1px var(--label-stroke-color);
   pointer-events: none;
   mix-blend-mode: hard-light;
 }
@@ -158,12 +155,12 @@ style.css
 .card__icon-button {
   display: grid;
   place-items: center;
-  padding: 0;
-  background: transparent;
+  box-sizing: border-box;
 
   border: 2px solid transparent;
-  box-sizing: border-box;
   border-radius: 0;
+  padding: 0;
+  background: transparent;
   transition: border-color 0.3s ease;
 }
 
@@ -174,8 +171,6 @@ style.css
 .card__icon-button:focus-visible {
   border-color: var(--color-accent);
 }
-
-
 
 .like-icon {
   display: block;
@@ -203,11 +198,10 @@ style.css
   line-height: 1;
 }
 
-
 .save-button__icon {
-  display: block;
   position: relative;
   z-index: 1;
+  display: block;
   fill: currentColor;
   mix-blend-mode: difference;
 }
@@ -215,7 +209,6 @@ style.css
 .save-button__icon use {
   fill: currentColor;
 }
-
 
 .dialog {
   display: none;
@@ -256,7 +249,7 @@ style.css
 
 .dialog__form {
   margin-top: 30px;
-} 
+}
 
 .dialog__button {
   border: 2px solid #000;
@@ -267,7 +260,6 @@ style.css
   text-transform: uppercase;
   inline-size: 100%;
 }
-
 
 /* Все общнн в эффектах кнопок*/
 .card__icon-button,
@@ -392,5 +384,4 @@ style.css
     padding: 30px 40px;
     inline-size: min(341px, calc(100vw - 34px));
   }
-
 }

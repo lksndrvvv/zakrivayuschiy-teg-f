@@ -41,4 +41,7 @@
   --button-bg: #fff;
   --button-overlay: #000;
   --button-text-base: #fff;
+
+  --contour-color: #000;
+  --animation-fill-color: #ff0000;
 }

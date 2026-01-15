@@ -158,7 +158,6 @@ style.css
 .card__icon-button {
   display: grid;
   place-items: center;
-  border: none;
   padding: 0;
   background: transparent;
 
@@ -384,7 +383,7 @@ style.css
     flex-direction: column;
   }
 
-  .save-button__icon{
+  .save-button__icon {
     width: 28px;
     height: 28px;
   }

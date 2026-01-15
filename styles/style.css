@@ -104,16 +104,14 @@ style.css
   right: 25px;
   z-index: 1;
 
+  opacity: 0.5;
+
+  color: #000;
+
   font-family: var(--font-accent);
   font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
-
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
-  pointer-events: none;
-
-  color: #000;
 
   /* Фоллбэк-обводка (работает почти везде) */
   text-shadow:
@@ -121,14 +119,16 @@ style.css
     0 1px var(--label-stroke-color),
     1px 0 var(--label-stroke-color),
     0 -1px var(--label-stroke-color);
+  pointer-events: none;
+  mix-blend-mode: hard-light;
 }
 
 /* Если stroke поддерживается */
 @supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .card__label {
+    text-shadow: none;
     -webkit-text-stroke: 1px var(--label-stroke-color);
     text-stroke: 1px var(--label-stroke-color);
-    text-shadow: none;
   }
 }
 
@@ -161,7 +161,22 @@ style.css
   border: none;
   padding: 0;
   background: transparent;
+
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
 }
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--color-accent);
+}
+
+
 
 .like-icon {
   display: block;
@@ -173,51 +188,51 @@ style.css
   font-family: var(--font-accent);
   font-size: var(--font-size-button);
   line-height: 1;
-  background: transparent;
 }
 
 .save-button {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 8px;
   margin-inline: auto;
   margin-block-end: 100px;
-  padding: 15px 18px;
   border: 2px solid #000;
-  background: #fff;
-
+  padding: 15px 18px;
   font-family: var(--font-accent);
   font-size: var(--font-size-button);
   line-height: 1;
 }
 
+
 .save-button__icon {
   display: block;
+  position: relative;
+  z-index: 1;
+  fill: currentColor;
+  mix-blend-mode: difference;
 }
 
-.card__icon-button,
-.card__like-button,
-.save-button {
-  cursor: pointer;
+.save-button__icon use {
+  fill: currentColor;
 }
+
 
 .dialog {
   display: none;
 
   border: 2px solid #000;
-  background: #fff;
 
   color: var(--color-text-main);
+  background: #fff;
 }
 
 .dialog[open] {
-  display: block; /* меняем display только при open */
-  inline-size: min(353px, calc(100vw - 40px));
+  display: block;
   padding: 30px;
+  inline-size: min(353px, calc(100vw - 40px));
 }
 
-/* Фон под диалогом */
 .dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
@@ -245,19 +260,88 @@ style.css
 } 
 
 .dialog__button {
-  inline-size: 100%;
-  padding: 10.5px 0;
-
   border: 2px solid #000;
-  background: #fff;
-
+  padding: 10.5px 0;
   font-family: var(--font-accent);
   font-size: 14px;
   line-height: 1;
-  cursor: pointer;
   text-transform: uppercase;
+  inline-size: 100%;
 }
 
+
+/* Все общнн в эффектах кнопок*/
+.card__icon-button,
+.card__like-button,
+.save-button,
+.dialog__button {
+  cursor: pointer;
+}
+
+.card__like-button,
+.save-button,
+.dialog__button {
+  position: relative;
+  overflow: hidden;
+  color: var(--button-text-base);
+  background: var(--button-bg);
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button:focus,
+.save-button:focus,
+.dialog__button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible,
+.save-button:focus-visible,
+.dialog__button:focus-visible {
+  box-shadow: 2px 2px 0 var(--color-accent);
+}
+
+.card__like-button::before,
+.save-button::before,
+.dialog__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--button-overlay);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* 
+.card__like-button:hover::before,
+.save-button:hover::before,
+.dialog__button:hover::before {
+  transform: scaleX(1);
+} */
+
+/* @media (hover: hover) and (pointer: fine) {
+  .card__like-button:hover::before,
+  .save-button:hover::before,
+  .dialog__button:hover::before {
+    transform: scaleX(1);
+  }
+} */
+
+@media (hover: hover) and (pointer: fine) {
+  .card__like-button:hover::before,
+  .save-button:hover::before,
+  .dialog__button:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.card__like-button .button__text,
+.save-button .button__text,
+.dialog__button .button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
 
 .card__image--original {
   filter: none;
@@ -267,7 +351,7 @@ style.css
   filter: saturate(0.4);
 }
 
-.card__image--desaturated {
+.card__image--dramatic {
   filter: contrast(1.8) brightness(0.8);
 }
 
@@ -290,8 +374,6 @@ style.css
 .card__image--inverted {
   filter: invert(0.8);
 }
-
-
 
 @media (width <= 375px) {
   .main {

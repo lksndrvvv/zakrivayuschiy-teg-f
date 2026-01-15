@@ -36,4 +36,9 @@
   --content-width: clamp(320px, 100vw, 700px);
 
   --label-stroke-color: #ffffff;
+
+  --color-accent: #000;
+  --button-bg: #fff;
+  --button-overlay: #000;
+  --button-text-base: #fff;
 }

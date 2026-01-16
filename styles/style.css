@@ -16,14 +16,14 @@ style.css
   color: var(--color-text-main);
 
   font-family: var(--font-main), sans-serif;
-  /* font-weight: var(--font-weight-text); */
-  font-variation-settings: "wght" var(--font-weight-text);
 
   background-image: var(--page-background);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
   background-attachment: fixed;
+  
+  font-variation-settings: "wght" var(--font-weight-text);
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
@@ -86,9 +86,9 @@ style.css
 
 .card__title {
   padding: 4.5px 10px;
-  font-variation-settings: "wght" var(--font-weight-title);
   font-size: var(--font-size-main);
   line-height: 1.15;
+  font-variation-settings: "wght" var(--font-weight-title);
 }
 
 .card__image-wrapper {
@@ -150,13 +150,13 @@ style.css
   display: grid;
   place-items: center;
   box-sizing: border-box;
-
-  cursor: pointer;
   border: 2px solid transparent;
   border-radius: 0;
   padding: 0;
   background: transparent;
   transition: border-color 0.3s ease;
+
+  cursor: pointer;
 }
 
 .card__icon-button:focus {
@@ -173,16 +173,19 @@ style.css
 
 /* Общий класс для кнопок */
 .button {
+  position: relative;
+
   border: 2px solid var(--ink);
+  overflow: hidden;
+  color: var(--button-text-base);
+
   font-family: var(--font-accent);
   font-size: var(--font-size-button);
   line-height: 1;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  color: var(--button-text-base);
   background: var(--button-bg);
   transition: box-shadow 0.3s ease;
+
+  cursor: pointer;
 }
 
 .button:focus {
@@ -216,9 +219,9 @@ style.css
 }
 
 .card__like-button {
-  min-inline-size: 118px;
   padding-block: 10.5px;
   text-align: center;
+  min-inline-size: 118px;
 }
 
 .save-button {

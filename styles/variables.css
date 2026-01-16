@@ -2,14 +2,17 @@
 
 :root {
   --font-main: "Inter", "Segoe UI", Arial, sans-serif;
-  --font-accent: "PressStart2P", "Segoe UI", Arial, sans-serif;
+  --font-accent: "PressStart2P", "Segoe UI", Arial, fantasy, sans-serif;
 
   --font-weight-text: 410;
   --font-weight-title: 715;
   /* --font-weight-accent: 400; */
 
-  --color-text-main: #000000;
-  --color-text-inverse: #ffffff;
+  --ink: #000;
+  --paper: #fff;
+
+  --color-text-main: var(--ink);
+  --color-text-inverse: var(--paper);
 
   --font-size-main: 18px;
   --font-size-button: 14px;
@@ -35,13 +38,11 @@
 
   --content-width: clamp(320px, 100vw, 700px);
 
-  --label-stroke-color: #ffffff;
-
-  --color-accent: #000;
-  --button-bg: #fff;
-  --button-overlay: #000;
-  --button-text-base: #fff;
-
-  --contour-color: #000;
+  --label-stroke-color: var(--paper);
+  --color-accent: var(--ink);
+  --button-bg: var(--paper);
+  --button-overlay: var(--ink);
+  --button-text-base: var(--paper);
+  --contour-color: var(--ink);
   --animation-fill-color: #ff0000;
 }

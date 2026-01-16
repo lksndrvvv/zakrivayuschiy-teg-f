@@ -16,7 +16,8 @@ style.css
   color: var(--color-text-main);
 
   font-family: var(--font-main), sans-serif;
-  font-weight: var(--font-weight-text);
+  /* font-weight: var(--font-weight-text); */
+  font-variation-settings: "wght" var(--font-weight-text);
 
   background-image: var(--page-background);
   background-repeat: no-repeat;
@@ -25,7 +26,6 @@ style.css
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "wght" var(--font-weight-text);
 }
 
 .content {
@@ -43,18 +43,17 @@ style.css
   flex-direction: column;
   align-items: center;
   gap: 17px;
-  border: 2px solid #000;
+  border: 2px solid var(--ink);
   padding-block: clamp(119px, calc(115.83px + 0.845vw), 128px);
   outline: none;
-  /* padding-inline: clamp(16px, calc(-21.5px + 10vw), 122.5px);  */
   text-align: center;
-  background-color: #fff;
+  background-color: var(--paper);
 }
 
 @media (min-width: 1440px) {
   .header .content {
     border: none;
-    outline: 2px solid #000;
+    outline: 2px solid var(--ink);
     outline-offset: 0;
   }
 }
@@ -81,21 +80,20 @@ style.css
 }
 
 .card {
-  border: 2px solid #000;
-  background-color: #fff;
+  border: 2px solid var(--ink);
+  background-color: var(--paper);
 }
 
 .card__title {
   padding: 4.5px 10px;
-  font-weight: var(--font-weight-title);
+  font-variation-settings: "wght" var(--font-weight-title);
   font-size: var(--font-size-main);
   line-height: 1.15;
-  font-variation-settings: "wght" var(--font-weight-title);
 }
 
 .card__image-wrapper {
   position: relative;
-  border-block: 2px solid #000;
+  border-block: 2px solid var(--ink);
 }
 
 .card__label {
@@ -103,17 +101,13 @@ style.css
   top: 25px;
   right: 25px;
   z-index: 1;
-
   opacity: 0.5;
-
-  color: #000;
-
+  color: var(--ink);
   font-family: var(--font-accent);
   font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
-
-  /* Фоллбэк-обводка (работает почти везде) */
+  /* Фоллбэк-обводка */
   text-shadow: -1px 0 var(--label-stroke-color), 0 1px var(--label-stroke-color),
     1px 0 var(--label-stroke-color), 0 -1px var(--label-stroke-color);
   pointer-events: none;
@@ -157,6 +151,7 @@ style.css
   place-items: center;
   box-sizing: border-box;
 
+  cursor: pointer;
   border: 2px solid transparent;
   border-radius: 0;
   padding: 0;
@@ -176,12 +171,54 @@ style.css
   display: block;
 }
 
-.card__like-button {
-  border: 2px solid #000;
-  padding: 10.5px 35px;
+/* Общий класс для кнопок */
+.button {
+  border: 2px solid var(--ink);
   font-family: var(--font-accent);
   font-size: var(--font-size-button);
   line-height: 1;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: var(--button-text-base);
+  background: var(--button-bg);
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--color-accent);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--button-overlay);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.button .button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  min-inline-size: 118px;
+  padding-block: 10.5px;
+  text-align: center;
 }
 
 .save-button {
@@ -191,11 +228,7 @@ style.css
   gap: 8px;
   margin-inline: auto;
   margin-block-end: 100px;
-  border: 2px solid #000;
   padding: 15px 18px;
-  font-family: var(--font-accent);
-  font-size: var(--font-size-button);
-  line-height: 1;
 }
 
 .save-button__icon {
@@ -212,11 +245,9 @@ style.css
 
 .dialog {
   display: none;
-
-  border: 2px solid #000;
-
+  border: 2px solid var(--ink);
   color: var(--color-text-main);
-  background: #fff;
+  background: var(--paper);
 }
 
 .dialog[open] {
@@ -252,86 +283,9 @@ style.css
 }
 
 .dialog__button {
-  border: 2px solid #000;
   padding: 10.5px 0;
-  font-family: var(--font-accent);
-  font-size: 14px;
-  line-height: 1;
   text-transform: uppercase;
   inline-size: 100%;
-}
-
-/* Все общнн в эффектах кнопок*/
-.card__icon-button,
-.card__like-button,
-.save-button,
-.dialog__button {
-  cursor: pointer;
-}
-
-.card__like-button,
-.save-button,
-.dialog__button {
-  position: relative;
-  overflow: hidden;
-  color: var(--button-text-base);
-  background: var(--button-bg);
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button:focus,
-.save-button:focus,
-.dialog__button:focus {
-  outline: none;
-}
-
-.card__like-button:focus-visible,
-.save-button:focus-visible,
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--color-accent);
-}
-
-.card__like-button::before,
-.save-button::before,
-.dialog__button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--button-overlay);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-/* 
-.card__like-button:hover::before,
-.save-button:hover::before,
-.dialog__button:hover::before {
-  transform: scaleX(1);
-} */
-
-/* @media (hover: hover) and (pointer: fine) {
-  .card__like-button:hover::before,
-  .save-button:hover::before,
-  .dialog__button:hover::before {
-    transform: scaleX(1);
-  }
-} */
-
-@media (hover: hover) and (pointer: fine) {
-  .card__like-button:hover::before,
-  .save-button:hover::before,
-  .dialog__button:hover::before {
-    transform: scaleX(1);
-  }
-}
-
-.card__like-button .button__text,
-.save-button .button__text,
-.dialog__button .button__text {
-  position: relative;
-  z-index: 1;
-  mix-blend-mode: difference;
 }
 
 .card__image--original {
